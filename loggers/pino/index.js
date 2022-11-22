@@ -21,7 +21,8 @@ const {
   version,
   formatError,
   formatHttpRequest,
-  formatHttpResponse
+  formatHttpResponse,
+  formatHttpRequestBody
 } = require('@elastic/ecs-helpers')
 
 const { hasOwnProperty } = Object.prototype
@@ -50,6 +51,7 @@ function createEcsPinoOptions (opts) {
   let convertErr = true
   let convertReqRes = false
   let apmIntegration = true
+  let convertReqBody = false
   if (opts) {
     if (hasOwnProperty.call(opts, 'convertErr')) {
       convertErr = opts.convertErr
@@ -59,6 +61,9 @@ function createEcsPinoOptions (opts) {
     }
     if (hasOwnProperty.call(opts, 'apmIntegration')) {
       apmIntegration = opts.apmIntegration
+    }
+    if (hasOwnProperty.call(opts, 'convertReqBody')) {
+      convertReqBody = opts.convertReqBody
     }
   }
 
@@ -219,6 +224,9 @@ function createEcsPinoOptions (opts) {
             ecsObj.req = req
           } else {
             formatHttpRequest(ecsObj, req)
+          }
+          if (convertReqBody) {
+            formatHttpRequestBody(ecsObj, req)
           }
         }
         if (res !== undefined) {

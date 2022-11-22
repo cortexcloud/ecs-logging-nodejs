@@ -25,6 +25,10 @@ interface Config {
    * Default true.
    */
   apmIntegration?: boolean;
+  /**
+   * Whether to convert logged `req` HTTP request body data. Default false.
+   */
+  convertReqBody?: boolean;
 }
 
 declare function createEcsPinoOptions(config?: Config): LoggerOptions;

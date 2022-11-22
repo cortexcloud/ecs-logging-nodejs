@@ -155,4 +155,35 @@ function formatHttpResponse (ecs, res) {
   return true
 }
 
-module.exports = { formatHttpRequest, formatHttpResponse }
+function formatHttpRequestBody (ecs, req) {
+  if (req === undefined || req === null || typeof req !== 'object') {
+    return false
+  }
+  if (req.raw && req.raw.req && req.raw.req.httpVersion) {
+    // This looks like a hapi request object (https://hapi.dev/api/#request),
+    // use the raw Node.js http.IncomingMessage that it references.
+    // TODO: Use hapi's already parsed `req.url` for speed.
+    req = req.raw.req
+  }
+  // Use duck-typing to check this is a `http.IncomingMessage`-y object.
+  if (!('httpVersion' in req && 'headers' in req && 'method' in req)) {
+    return false
+  }
+
+  const {
+    body
+  } = req
+
+  if (Object.keys(body).length !== 0) {
+    ecs.http = ecs.http || {}
+    ecs.http.request = ecs.http.request || {}
+    ecs.http.request.body = ecs.http.request.body || {}
+    ecs.http.request.body.data = ecs.http.request.body.data || {}
+    ecs.http.request.body.data = body
+  }
+
+  return true
+
+}
+
+module.exports = { formatHttpRequest, formatHttpResponse, formatHttpRequestBody }

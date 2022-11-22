@@ -1,6 +1,6 @@
 {
-  "name": "@elastic/ecs-helpers",
-  "version": "1.1.0",
+  "name": "@cortexcloud/ecs-helpers",
+  "version": "1.1.1",
   "description": "ECS loggers helpers",
   "main": "lib/index.js",
   "files": [
@@ -8,14 +8,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elastic/ecs-logging-nodejs.git"
+    "url": "git+https://github.com/cortexcloud/ecs-logging-nodejs.git"
   },
-  "author": "Tomas Della Vedova",
+  "author": "Pawat Siriwattanayotin",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/elastic/ecs-logging-nodejs/issues"
+    "url": "https://github.com/cortexcloud/ecs-logging-nodejs/issues"
   },
-  "homepage": "https://github.com/elastic/ecs-logging-nodejs/blob/main/helpers/README.md",
+  "homepage": "https://github.com/cortexcloud/ecs-logging-nodejs/blob/main/helpers/README.md",
   "scripts": {
     "test": "standard && tap --no-check-coverage --timeout ${TAP_TIMEOUT:-10} test/*.test.js"
   },

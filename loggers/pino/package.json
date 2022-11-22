@@ -1,6 +1,6 @@
 {
-  "name": "@elastic/ecs-pino-format",
-  "version": "1.3.0",
+  "name": "@cortexcloud/ecs-pino-format",
+  "version": "1.3.1",
   "description": "A formatter for the pino logger compatible with Elastic Common Schema.",
   "main": "index.js",
   "files": [
@@ -10,7 +10,7 @@
   "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elastic/ecs-logging-nodejs.git"
+    "url": "git+https://github.com/cortexcloud/ecs-logging-nodejs.git"
   },
   "keywords": [
     "pino",
@@ -23,12 +23,12 @@
     "common",
     "schema"
   ],
-  "author": "Tomas Della Vedova",
+  "author": "Pawat Siriwattanayotin",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/elastic/ecs-logging-nodejs/issues"
+    "url": "https://github.com/cortexcloud/ecs-logging-nodejs/issues"
   },
-  "homepage": "https://github.com/elastic/ecs-logging-nodejs/blob/main/loggers/pino/README.md",
+  "homepage": "https://github.com/cortexcloud/ecs-logging-nodejs/blob/main/loggers/pino/README.md",
   "scripts": {
     "test": "standard && tap --timeout ${TAP_TIMEOUT:-10} test/*.test.js"
   },
@@ -36,7 +36,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@elastic/ecs-helpers": "^1.1.0"
+    "@cortexcloud/ecs-helpers": "^1.1.1"
   },
   "devDependencies": {
     "@types/pino": "^6.3.9",
